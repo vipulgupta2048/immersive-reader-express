@@ -1,0 +1,164 @@
+doctype html
+html
+    head
+        title Immersive Reader Quickstart Node.js
+
+        link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+
+        // A polyfill for Promise is needed for IE11 support.
+        script(src='https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js')
+
+        script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js')
+        script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+
+        style(type="text/css").
+            .immersive-reader-button {
+                background-color: white;
+                margin-top: 5px;
+                border: 1px solid black;
+                float: right;
+            }
+    body
+        div(class="container")
+            button(class="immersive-reader-button" data-button-style="iconAndText" data-locale="en")
+
+            h1(id="ir-title") Vipul Gupta's Immersive Reader Demo
+            div(id="ir-content" lang="en-us")
+              p Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. The Immersive Reader is designed to make reading more accessible for everyone. The Immersive Reader
+
+                p | You read the title of the blog, it&apos;s clear enough what we are here for. 
+                    strong Understanding Serverless the easiest way possible
+                    | . If what you read below is too slow for your pace. You can jump right into a more practical, hands-on learning experience where I build a party parrot GIF generator from scratch and deployed it over on serverless. The link at the end, or probably on the sidebar.
+                h2
+                    a.anchor(name='what-is-serverless-well-storytime' href='#what-is-serverless-well-storytime')
+                    |   What is Serverless? Well, storytime!
+                p
+                    | Serverless computing is a cloud computing execution model in which the cloud provider runs the server, and dynamically manages the allocation of machine resources. Pricing is based on the actual amount of resources consumed by an application, rather than on pre-purchased units of capacity or bandwidth.
+                p
+                    | That&apos;s how the 
+                    strong
+                        a(href='https://en.wikipedia.org/wiki/Serverless_computing') Wikipedia definition
+                    |  looks like. It&apos;s amazingly adequate. But, it does go over the head of folks looking to understand this Cloud computing model in simple terms for the first time. Trust me we have all been there. I will expand them with a story that I am writing to explain it all. Do Google terms that you have trouble understanding or comment them down below and I will help out wherever I can. I am learning too!
+                h2
+                    a.anchor(name='to-understand-serverless-better-we-understand-what-came-before-it' href='#to-understand-serverless-better-we-understand-what-came-before-it')
+                    |   To understand Serverless better, we understand what came before it
+                p
+                    | Aastha is a software developer working for Foobar Industries. She has been building an application locally and the development is going quite well. It has tests, follows best practices, it&apos;s secure, and work on her system. All that good stuff. It basically contains the business logic + data of her entire application. Next, she wants to deploy the application over the cloud for everyone to use and work on.
+                p
+                    | Earlier application deployment over the cloud followed a more &quot;Do it all yourself&quot; (DIAY) approach. It&apos;s all about setting up your own servers, hiring a specialized team of engineers to run and maintain them, worry about security, routing, and probably 100 different things. It&apos;s not common now with cloud providers like AWS, GCP, DO, Azure, and Heroku coming in to do the heavy lifting for you. Yet if companies want the total privacy of their data and their business logic, this methodology is an expensive way to go about it.
+                h2
+                    a.anchor(name='cloud-transforming-into-a-better-place' href='#cloud-transforming-into-a-better-place')
+                    |   Cloud transforming into a better place
+                p
+                    | Thankfully Aastha&apos;s company wasn&apos;t into DIAY rather used Poogle as their cloud providers. Aastha sets up her application to run over Poogle&apos;s server which basically means running it on someone&apos;s else computer. She still has to set it up, deciding on configuration options like routing, access, resources, security, code deployments, and CI/CD pipelines. But, at least she doesn&apos;t have to worry about uptime, maintenance, updates, security, and availability. This is Infrastructure as a service (IAAS).
+                p
+                    | With the introduction of new features, PAAS (Platform as a Service), CAAS (Containers as a Service), fully-featured SDKs,  and great documentation. Cloud is now become a better, more easier place to step into. Helping development teams focus more on the business logic instead of maintaining the application. Building software is now cheaper, easier, and quicker for everyone. Aastha is very happy as her application steadily grows both in users and features. Deploying over the cloud truly is a game-changer. But, like all deployments made on Friday are bound to fail over the weekend (I hope not). Aastha&apos;s application is yet to face its toughest opponent.
+                h2
+                    a.anchor(name='dynamic-scaling-with-the-demand' href='#dynamic-scaling-with-the-demand')
+                    |   Dynamic Scaling with the demand
+                p
+                    | Aastha&apos;s application is doing well, getting more traffic and requests with each passing day. She focuses on the development, adding new features and quashing old bugs. With that, she monitors the instance through Poogle&apos;s monitoring tool and streamlines the production pipelines for easier deployments. As the demand increases more, she begins to notice her instance is not able to keep up with the requests coming in throughout the day.
+                p
+                    | Hence, she decides to get a bigger instance on Poogle and scales up her application. As users on her application continue to grow. She finds herself in the same scenario of having to move to a bigger instance. Sure in this scenario, throwing more infrastructure in the face of higher demand makes sense. But, although Foobar industries don&apos;t own the servers at Poogle. They still have to pay for renting them. It costs money, per hour, per day to rent an even bigger instance of whether the demand is coming in or not. Aastha analyses the traffic coming in each day and find an incredibly useful insight.
+                p
+                    | The surge of traffic that warranted the move to a bigger instance earlier was coming in at a specific time or due to a specific action. Aastha begins to wonder if they could dynamically scale their instance according to incoming demand. Leading to higher efficiency and even greater savings. Later, they could scale it back when the demand is not that much. How cool would that be!
+                h2
+                    a.anchor(name='lo-and-behold-our-savior-serverless' href='#lo-and-behold-our-savior-serverless')
+                    |   Lo and behold, our savior Serverless!
+                p
+                    | Coming back to the definition of Serverless. Serverless is a type of a Cloud computing model where users are charged only on what they use. It incorporates everything that has been already there in the cloud, using infrastructure, backend, and functions as a service to build a better ecosystem. For a quick example, consider single-page applications and similar use-cases which doesn&apos;t require an &quot;always-on&quot; server component or more simply, they don&apos;t need that many resources all the time. They need it when someone requests it.
+                p
+                    | Even if someone does request, the application can be started upon a small instance which could then be scaled dynamically as per demand/traffic without the need for any oversight. This results in a greatly reduced operational cost, complexity, and engineering lead time whereas making it easier for folks to develop and work on it. Giving more time to focus on their application with little or no monitoring of the instances. Something I have explained at depth while 
+                    a(href='https://dev.to/vipulgupta2048/using-serverless-at-scale-to-build-a-party-parrot-gifs-generator-32be') building a real application on serverless and scaling it up
+                    | .
+                p
+                    | Coming back to our story, Aastha and her team assesses their needs, and decides it be best to migrate to Poogle&apos;s serverless architecture as monitoring instances constantly has been a major effort on her side. As a software developer, her time is better spent working on improving the application and let serverless + Poogle&apos;s team of Cloud experts take care of her application. Everyone was really excited and happy to find a solution to this and no nothing failed over the weekend because deploying on a Friday is a really bad idea.
+                p Fin.
+                h2
+                    a.anchor(name='more-to-add-in-the-end-a-reality-check' href='#more-to-add-in-the-end-a-reality-check')
+                    |   More to add in the end, a reality check
+                p
+                    | Serverless is not the solution to all the problems. It&apos;s definitely not the silver bullet that I will or anyone else should be selling you towards. No technology can be. It&apos;s too much too ask for at this time. I said the same thing for a similar post that I wrote for 
+                    a(href='https://mixstersite.wordpress.com/2020/01/07/what-is-kubernetes-k8s-simple-english/') demystifying K8s
+                    |  quite earlier. Sure, serverless has all kinds of kickass features with which building applications becomes so much easier. It&apos;s awesome that you don&apos;t have to be an SME on Poogle&apos;s cloud computing model to get started and it also saves you cash. I like working on it just because of the sheer automation of it all. But, with that said I do like scaling servers and handling real-time traffic on my application with as little resources as possible.
+                p
+                    | So, going forward after reading my post please do make an informed choice about Serverless. Read, question, and ask if serverless really for you and your use-case. There are some amazing posts, talks, and videos that have been written on serverless over the years. Give them a look. Also, this blog has been written for beginners to understand better. Hence, some concepts might be omitted in favor of brevity. Please comment done below if you like to see more of this content. Also, if you like to see a Party Parrot GIF generator that I built, tested, and deployed with Azure Serverless then head on down towards 
+                    a(href='https://dev.to/vipulgupta2048/using-serverless-at-scale-to-build-a-party-parrot-gifs-generator-32be') this link
+                    | .
+                p
+                    | Till then folks, hope you have an absolutely vanilla day ahead knowing what and why of serverless! Thanks for reading!
+
+
+                ul
+                    li Shows content in a minimal reading view
+                    li Displays pictures of commonly used words
+                    li Highlights nouns, verbs, adjectives, and adverbs
+                    li Reads your content out loud to you
+                    li Translates your content into another language
+                    li Breaks down words into syllables
+
+                        h3 The Immersive Reader is available in many languages.
+
+                        p(lang="es-es") El Lector inmersivo está disponible en varios idiomas.
+                        p(lang="zh-cn") 沉浸式阅读器支持许多语言
+                        p(lang="de-de") Der plastische Reader ist in vielen Sprachen verfügbar.
+                        p(lang="ar-eg" dir="rtl" style="text-align:right") يتوفر \"القارئ الشامل\" في العديد من اللغات.
+
+script(type="text/javascript").
+    function getTokenAndSubdomainAsync() {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                url: "/GetTokenAndSubdomain",
+                type: "GET",
+                success: function (data) {
+                    if (data.error) {
+                        reject(data.error);
+                    } else {
+                        resolve(data);
+                    }
+                },
+                error: function (err) {
+                    reject(err);
+                }
+            });
+        });
+    }
+
+
+    $(".immersive-reader-button").click(function () {
+        handleLaunchImmersiveReader();
+    });
+
+    function handleLaunchImmersiveReader() {
+        getTokenAndSubdomainAsync()
+            .then(function (response) {
+                const token = response["token"];
+                const subdomain = response["subdomain"];
+                // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
+                const data = {
+                    title: $("#ir-title").text(),
+                    chunks: [{
+                        content: $("#ir-content").html(),
+                        mimeType: "text/html"
+                    }]
+                };
+                // Learn more about options https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
+                const options = {
+                    "onExit": exitCallback,
+                    "uiZIndex": 2000
+                };
+                ImmersiveReader.launchAsync(token, subdomain, data, options)
+                    .catch(function (error) {
+                        alert("Error in launching the Immersive Reader. Check the console.");
+                        console.log(error);
+                    });
+            })
+            .catch(function (error) {
+                alert("Error in getting the Immersive Reader token and subdomain. Check the console.");
+                console.log(error);
+            });
+    }
+
+    function exitCallback() {
+        console.log("This is the callback function. It is executed when the Immersive Reader closes.");
+    }
